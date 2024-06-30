@@ -1,0 +1,247 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Teste UPD8",
+        "description": "Criar um Cadastro de Cliente com as seguintes tecnologias: PHP Laravel e MySQL, onde a view deverá se comunicar com os dados através de API Rest.",
+        "contact": {
+            "name": "API Support",
+            "email": "wescleylima@gmail.com"
+        },
+        "license": {
+            "name": "MIT License",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/clientes": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Recupera lista de clientes",
+                "description": "Retorna a lista de clientes do banco de dados",
+                "operationId": "ba0baeadf0c6364c29574444264d42a9",
+                "responses": {
+                    "200": {
+                        "description": "Retorna objeto json com a lista dos clientes"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Cria novo clientes",
+                "description": "Insere novo clientes no banco de dados",
+                "operationId": "76b57402fc9c3664ab78b7f01a5bd0b5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "_token": {
+                                        "type": "string",
+                                        "example": "6Y8aygQUlj5IFQwiUoTQPFt8Q4DfT9WUhHCoPrnM"
+                                    },
+                                    "cpf": {
+                                        "type": "integer",
+                                        "example": 99999999999
+                                    },
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Fulano de Tal"
+                                    },
+                                    "data_nascimento": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2000-01-01"
+                                    },
+                                    "sexo": {
+                                        "type": "string",
+                                        "example": "M"
+                                    },
+                                    "endereco": {
+                                        "type": "string",
+                                        "example": "Rua das Araucárias, SN"
+                                    },
+                                    "estado": {
+                                        "type": "string",
+                                        "example": "DF"
+                                    },
+                                    "cidade": {
+                                        "type": "string",
+                                        "example": "Brasília"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Retorna o id do clientes inserido no banco de dados"
+                    }
+                }
+            }
+        },
+        "/api/clientes/{cliente}": {
+            "put": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Edita clientes",
+                "description": "Altera clientes no banco de dados",
+                "operationId": "cefdf1b2efb77ebd136a58d44c19c35d",
+                "parameters": [
+                    {
+                        "name": "cliente",
+                        "in": "path",
+                        "description": "Código do cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "_token": {
+                                        "type": "string",
+                                        "example": "6Y8aygQUlj5IFQwiUoTQPFt8Q4DfT9WUhHCoPrnM"
+                                    },
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "cpf": {
+                                        "type": "integer",
+                                        "example": 99999999999
+                                    },
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Fulano de Tal"
+                                    },
+                                    "data_nascimento": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2000-01-01"
+                                    },
+                                    "sexo": {
+                                        "type": "string",
+                                        "example": "M"
+                                    },
+                                    "endereco": {
+                                        "type": "string",
+                                        "example": "Rua das Araucárias, SN"
+                                    },
+                                    "estado": {
+                                        "type": "string",
+                                        "example": "DF"
+                                    },
+                                    "cidade": {
+                                        "type": "string",
+                                        "example": "Brasília"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Retorna objeto json do clientes após alteração no banco de dados"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Deleta clientes",
+                "description": "Remove clientes do banco de dados",
+                "operationId": "2e4823e5c01398be95ae3e398f5832e4",
+                "parameters": [
+                    {
+                        "name": "cliente",
+                        "in": "path",
+                        "description": "Código do cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "_token": {
+                                        "type": "string",
+                                        "example": "6Y8aygQUlj5IFQwiUoTQPFt8Q4DfT9WUhHCoPrnM"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Retorna mensagem de exclusão do clientes"
+                    }
+                }
+            }
+        },
+        "/api/localidades/estados": {
+            "get": {
+                "tags": [
+                    "Localidades"
+                ],
+                "summary": "Recupera lista de ufs",
+                "description": "Retorna a lista de ufs da api do IBGE",
+                "operationId": "d1daa44c1463b82df3465f5635726891",
+                "responses": {
+                    "200": {
+                        "description": "Retorna objeto json com a lista das ufs"
+                    }
+                }
+            }
+        },
+        "/api/localidades/{uf}/cidades": {
+            "get": {
+                "tags": [
+                    "Localidades"
+                ],
+                "summary": "Recupera lista de cidades por uf",
+                "description": "Retorna a lista de cidades por uf da api do IBGE",
+                "operationId": "1aa4d5c40bd82e0eca024b95cb671524",
+                "parameters": [
+                    {
+                        "name": "uf",
+                        "in": "path",
+                        "description": "Sigla da UF (Unidade Federativa)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retorna objeto json com a lista das cidades"
+                    }
+                }
+            }
+        }
+    }
+}
